@@ -4,7 +4,7 @@ import 'package:tdd_clean_archi/features/number_trivia/domain/repositories/numbe
 import 'package:mockito/mockito.dart'; // for Mocking
 import 'package:flutter_test/flutter_test.dart'; // for setup
 import 'package:tdd_clean_archi/features/number_trivia/domain/usecases/get_concrete_number_trivia.dart';
-import 'package:mockito/annotations.dart';
+// import 'package:mockito/annotations.dart';  // optional
 
 // @GenerateMocks([NumberTriviaRepository])     // optional
 
@@ -31,7 +31,7 @@ void main() {
       when(mockNumberTriviaRepository.getConcreteNumberTrivia(tNumber))
           .thenAnswer((_) async => const Right(tNumberTrivia));
       // act
-      final result = await usecase(const Params(number: tNumber));      // or usecase.call(number: tNumber);
+      final result = await usecase(const Params(number: tNumber));    // or usecase.call(number: tNumber);
       // assert
       expect(result, const Right(tNumberTrivia));
       verify(mockNumberTriviaRepository.getConcreteNumberTrivia(
